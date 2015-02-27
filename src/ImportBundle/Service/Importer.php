@@ -57,15 +57,23 @@ class Importer
     private $progress;
 
     /**
+     * Playlists
+     *
+     * @var array
+     */
+    private $playlists;
+
+    /**
      * Injecting dependencies
      *
      * @param YoutubeCollector $collector
      */
-    public function __construct(YoutubeCollector $collector, ObjectManager $manager, ValidatorInterface $validator)
+    public function __construct(YoutubeCollector $collector, ObjectManager $manager, ValidatorInterface $validator, array $playlists)
     {
         $this->collector = $collector;
         $this->manager   = $manager;
         $this->validator = $validator;
+        $this->playlists = $playlists;
     }
 
     /**

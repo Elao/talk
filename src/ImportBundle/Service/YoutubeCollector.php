@@ -31,31 +31,26 @@ class YoutubeCollector
     private $apiKey;
 
     /**
-     * Playlist ID
-     *
-     * @var string
-     */
-    private $playlist;
-
-    /**
      * Construct
      *
      * @param string $apiKey
-     * @param string $playlist
      */
-    public function __construct($apiKey, $playlist)
+    public function __construct($apiKey)
     {
-        $this->client    = new GuzzleHttp\Client();
-        $this->apiKey    = $apiKey;
-        $this->playlist = $playlist;
+        $this->client = new GuzzleHttp\Client();
+        $this->apiKey = $apiKey;
     }
 
     /**
      * Get videos
+     *
+     * @param string $playlist
+     *
+     * @return array
      */
-    public function getVideos()
+    public function getVideos($playlist)
     {
-        $result = $this->getPlaylistItems($this->playlist);
+        $result = $this->getPlaylistItems($playlist);
         $videos = [];
 
         foreach ($result['items'] as $item) {

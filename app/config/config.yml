@@ -63,4 +63,6 @@ swiftmailer:
 import:
     api_key:  %youtube_api_key%
     channel:  UC9V0oqgfaWYhEm0biustNqA
-    playlist: PLkJgdYh31EJG1IdKLv0QlYKieozt_CFzI
+    playlists:
+        main:   PLkJgdYh31EJG1IdKLv0QlYKieozt_CFzI
+        live:   PLkJgdYh31EJEd3CZoq339TTHz5a6zwsmp
