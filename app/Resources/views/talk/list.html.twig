@@ -11,8 +11,7 @@
 {% block talk %}
     {% set url = 'https://www.youtube.com/watch?v=' ~ talk.video.youtubeId %}
     <li class="talk {{ talk.state }}">
-
-        <img src="{{ yt_thumbnail(talk.video) }}" alt="{{ talk.title }}" title="{{ talk.title }}"/>
+        <img src="{{ yt_thumbnail(talk.video) }}" alt="{{ talk.title }}" title="{{ talk.title }}">
 
         <h3>
             <span class="date">
@@ -23,9 +22,7 @@
             </a>
         </h3>
 
-        <p>
-            {{ talk.description }}
-        </p>
+        <p>{{ talk.description }}</p>
 
         <div class="player">
             {{ include(':youtube:player.html.twig', {video: talk.video}) }}
