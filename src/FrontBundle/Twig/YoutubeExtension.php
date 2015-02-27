@@ -4,7 +4,7 @@ namespace FrontBundle\Twig;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
-use FrontBundle\Entity\Video;
+use Model\Video;
 
 /**
  * Youtube utilities for Twig

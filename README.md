@@ -18,3 +18,7 @@ Create the database:
 Import the videos from Youtube channel:
 
     bin/console import:videos
+
+Build assets:
+
+    gulp

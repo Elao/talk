@@ -6,8 +6,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
-use AppBundle\Entity\Talk;
-use AppBundle\Entity\Video;
+use Model\Talk;
+use Model\Video;
 
 /**
  * Importer
@@ -125,7 +125,7 @@ class Importer
     private function getRepository()
     {
         if (!$this->repository) {
-            $this->repository = $this->manager->getRepository('AppBundle:Video');
+            $this->repository = $this->manager->getRepository('Model:Video');
         }
 
         return $this->repository;

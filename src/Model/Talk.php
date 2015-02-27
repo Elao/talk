@@ -1,6 +1,6 @@
 <?php
 
-namespace FrontBundle\Entity;
+namespace Model;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;

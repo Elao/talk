@@ -17,7 +17,7 @@ class TalkController extends Controller
         $talks = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('FrontBundle:Talk')
+            ->getRepository('Model:Talk')
             ->findAll();
 
         return ['talks' => $talks];
