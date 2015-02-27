@@ -2,9 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block meta_title 'Elao Talk' %}</title>
+
+        {% block meta %}
+            <meta name="description" content="{% block meta_description 'Elao Talk' %}">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+
+        {% block stylesheets %}
+            <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}

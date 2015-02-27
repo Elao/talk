@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\DependencyInjection;
+namespace FrontBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('talk');
+        $rootNode = $treeBuilder->root('front');
 
         return $treeBuilder;
     }

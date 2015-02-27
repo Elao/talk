@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\Twig;
+namespace FrontBundle\Twig;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
-use AppBundle\Entity\Video;
+use FrontBundle\Entity\Video;
 
 /**
  * Youtube utilities for Twig

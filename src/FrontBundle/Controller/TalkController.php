@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace FrontBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -17,7 +17,7 @@ class TalkController extends Controller
         $talks = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Talk')
+            ->getRepository('FrontBundle:Talk')
             ->findAll();
 
         return ['talks' => $talks];
