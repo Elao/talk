@@ -1,0 +1,6 @@
+services:
+    twig.extension.youtube:
+        class: AppBundle\Twig\YoutubeExtension
+        public: false
+        tags:
+            - { name: twig.extension }

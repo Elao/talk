@@ -6,6 +6,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
+use AppBundle\Entity\Talk;
 use AppBundle\Entity\Video;
 
 /**
@@ -77,10 +78,10 @@ class Importer
         $this->addProgress(count($list));
 
         foreach ($list as $item) {
-            $video = $this->getVideoFromYoutube($item);
+            $talk = $this->getTalkFromYoutube($item);
 
-            if (!count($this->validator->validate($video))) {
-                $this->manager->persist($video);
+            if (!count($this->validator->validate($talk))) {
+                $this->manager->persist($talk);
             }
 
             $this->advanceProgress();
@@ -91,23 +92,29 @@ class Importer
     }
 
     /**
-     * Get or create video from youtube data
+     * Get or create a talk from youtube video data
      *
      * @param array $data
      *
      * @return Video
      */
-    private function getVideoFromYoutube(array $data)
+    private function getTalkFromYoutube(array $data)
     {
         if (!$video = $this->getRepository()->findOneByYoutubeId($data['id'])) {
             $video = new Video($data['id']);
         }
 
-        $video->setTitle($data['snippet']['title']);
-        $video->setDescription($data['snippet']['description']);
+        if (!$talk = $video->getTalk()) {
+            $talk = new Talk();
+            $talk->setVideo($video);
+        }
+
+        $talk->setTitle($data['snippet']['title']);
+        $talk->setDescription($data['snippet']['description']);
+        $talk->setDay($data['recordingDetails']['recordingDate']);
         $video->setPublishedAt($data['snippet']['publishedAt']);
 
-        return $video;
+        return $talk;
     }
 
     /**

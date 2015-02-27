@@ -20,6 +20,6 @@ class GetVideoCall extends YoutubeApiCall
      */
     protected function getParts()
     {
-        return ['id', 'player', 'snippet'];
+        return ['id', 'player', 'snippet', 'recordingDetails'];
     }
 }

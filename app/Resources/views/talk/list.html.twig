@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul class="talk-list">
+        {% for talk in talks %}
+            {{ block('talk') }}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block talk %}
+    {% set url = 'https://www.youtube.com/watch?v=' ~ talk.video.youtubeId %}
+    <li class="talk {{ talk.state }}">
+        <h3>
+            <span class="date">
+                {{ talk.day|date('d/m/Y') }}
+            </span>
+            <a href="{{ url }}" target="_blank">
+                {{ talk.title }}
+            </a>
+        </h3>
+
+        <p>
+            {{ talk.description }}
+        </p>
+
+        <a href="{{ url }}" target="_blank">
+            {{ 'talk.watch'|trans }}
+        </a>
+    </li>
+{% endblock %}

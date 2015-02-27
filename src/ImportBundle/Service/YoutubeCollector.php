@@ -66,6 +66,11 @@ class YoutubeCollector
                 $video['snippet']['publishedAt']
             );
 
+            $video['recordingDetails']['recordingDate'] = DateTime::createFromFormat(
+                static::YOUTUBE_DATE_FORMAT,
+                $video['recordingDetails']['recordingDate']
+            );
+
             $videos[] = $video;
         }
 
@@ -120,5 +125,17 @@ class YoutubeCollector
         $call->setApiKey($this->apiKey);
 
         return $this->client->get($call->getUrl())->json();
+    }
+
+    /**
+     * Parse Youtube formated date
+     *
+     * @param string $date
+     *
+     * @return DateTime
+     */
+    private function parseDate($date)
+    {
+        return DateTime::createFromFormat(static::YOUTUBE_DATE_FORMAT, $date);
     }
 }

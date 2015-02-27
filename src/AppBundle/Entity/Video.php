@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,25 +30,20 @@ class Video
     private $youtubeId;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="publishedAt", type="datetime")
      */
     private $publishedAt;
 
     /**
-     * @var string
+     * Talk
      *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    private $title;
-
-    /**
-     * @var string
+     * @var Talk
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\OneToOne(targetEntity="Talk", mappedBy="video")
      */
-    private $description;
+    private $talk;
 
     /**
      * Get id
@@ -64,22 +60,9 @@ class Video
      *
      * @param string $youtubeId
      */
-    public function __construct($youtubeId = null)
+    public function __construct($youtubeId)
     {
         $this->youtubeId = $youtubeId;
-    }
-
-    /**
-     * Set youtubeId
-     *
-     * @param string $youtubeId
-     * @return Video
-     */
-    public function setYoutubeId($youtubeId)
-    {
-        $this->youtubeId = $youtubeId;
-
-        return $this;
     }
 
     /**
@@ -95,10 +78,11 @@ class Video
     /**
      * Set publishedAt
      *
-     * @param \DateTime $publishedAt
+     * @param DateTime $publishedAt
+     *
      * @return Video
      */
-    public function setPublishedAt($publishedAt)
+    public function setPublishedAt(DateTime $publishedAt)
     {
         $this->publishedAt = $publishedAt;
 
@@ -108,7 +92,7 @@ class Video
     /**
      * Get publishedAt
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getPublishedAt()
     {
@@ -116,48 +100,12 @@ class Video
     }
 
     /**
-     * Set title
+     * Get talk
      *
-     * @param string $title
-     * @return Video
+     * @return Talk
      */
-    public function setTitle($title)
+    public function getTalk()
     {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Video
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
+        return $this->talk;
     }
 }
