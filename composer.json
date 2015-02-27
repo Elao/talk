@@ -1,8 +1,8 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "elao-talks",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "Elao talks website",
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
@@ -57,7 +57,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.7-dev"
+            "dev-master": "0.1-dev"
         }
     }
 }
