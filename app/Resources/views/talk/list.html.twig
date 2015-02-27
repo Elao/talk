@@ -11,6 +11,9 @@
 {% block talk %}
     {% set url = 'https://www.youtube.com/watch?v=' ~ talk.video.youtubeId %}
     <li class="talk {{ talk.state }}">
+
+        <img src="{{ yt_thumbnail(talk.video) }}" alt="{{ talk.title }}" title="{{ talk.title }}"/>
+
         <h3>
             <span class="date">
                 {{ talk.day|date('d/m/Y') }}
@@ -24,8 +27,8 @@
             {{ talk.description }}
         </p>
 
-        <a href="{{ url }}" target="_blank">
-            {{ 'talk.watch'|trans }}
-        </a>
+        <div class="player">
+            {{ include(':youtube:player.html.twig', {video: talk.video}) }}
+        </div>
     </li>
 {% endblock %}
