@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul>
+        {% for talk in talks %}
+            {{ talk }}
+        {% endfor %}
+    </ul>
+{% endblock %}

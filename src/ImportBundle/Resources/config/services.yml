@@ -1,0 +1,12 @@
+services:
+    youtube_collector:
+        class:  ImportBundle\Service\YoutubeCollector
+        arguments:
+            - %import.api_key%
+            - %import.playlist%
+    importer:
+        class:  ImportBundle\Service\Importer
+        arguments:
+            - @youtube_collector
+            - @doctrine.orm.entity_manager
+            - @validator
