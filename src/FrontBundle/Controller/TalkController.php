@@ -23,13 +23,4 @@ class TalkController extends Controller
 
         return ['talks' => $talks];
     }
-
-    /**
-     * @Route("/oauth2callback", name="api_callback")
-     */
-    public function callbackAction(Request $request)
-    {
-        var_dump($request);
-        die();
-    }
 }
