@@ -30,7 +30,7 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()
-                ->arrayNode('playlist')
+                ->arrayNode('playlists')
                     ->isRequired()
                     ->cannotBeEmpty()
                     ->children()

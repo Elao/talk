@@ -5,6 +5,7 @@ namespace FrontBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class TalkController extends Controller
 {
@@ -21,5 +22,15 @@ class TalkController extends Controller
             ->findAll();
 
         return ['talks' => $talks];
+    }
+
+    /**
+     * @Route("/api", name="api_callback")
+     * @Template(":talk:list.html.twig")
+     */
+    public function callbackAction(Request $request)
+    {
+        var_dump($request);
+        die();
     }
 }
