@@ -25,8 +25,7 @@ class TalkController extends Controller
     }
 
     /**
-     * @Route("/api", name="api_callback")
-     * @Template(":talk:list.html.twig")
+     * @Route("/oauth2callback", name="api_callback")
      */
     public function callbackAction(Request $request)
     {
