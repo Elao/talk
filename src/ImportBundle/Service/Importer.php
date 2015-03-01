@@ -81,7 +81,7 @@ class Importer
      */
     public function sync()
     {
-        $list = $this->collector->getVideos();
+        $list = $this->collector->getVideos($this->playlists['main']);
 
         $this->addProgress(count($list));
 
